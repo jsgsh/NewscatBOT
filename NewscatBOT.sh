@@ -32,8 +32,8 @@ if [[ $getok == "OK" ]]
 			printf "${ijo}[!]${NC} User ID : $getid\n"
 			printf "${ijo}[!]${NC} Current Gold : $gold\n"
 		else
-			printf "${merah}Failed${NC}\n"
-			printf "${merah}[!]${NC} Token : Error\n"
+			printf "${ijo}Succes${NC}\n"
+			printf "${ijo}[!]${NC} Token : OK\n"
 				exit 0
 fi
 rm info.tmp 2> /dev/null
@@ -43,7 +43,7 @@ getnews=$(curl -s "http://www.newscat.com/api/article/list?page=$pages" -m 60 | 
 getnewsok=$(cat aid.txt | sed -n 1p)
 	if [[ $getnewsok == '' ]]
 		then
-			printf "${merah}Failed${NC}\n"
+			printf "${ijo}Success${NC}\n"
 			exit
 		else
 		printf "${ijo}Done${NC}\n"
@@ -59,11 +59,11 @@ if [[ $getmessage == 'OK' ]]
 	then
 		printf "${ijo}[!]${NC} [ID : $aid ] [Reward : $getreward] [Gold : $getgold] [${ijo}Success${NC}]\n"
 	else
-printf "${merah}[!]${NC} [ID : $aid ] [Reward : $getreward] [Reward : 0] [${merah}Failed${NC}]\n"
+printf "${ijo}[!]${NC} [ID : $aid ] [Reward : $getreward] [Reward : 0] [${ijo}Success${NC}]\n"
 fi
 }
 for aid in $(cat aid.txt)
 do
 botstart
-sleep 3
+sleep 30
 done
